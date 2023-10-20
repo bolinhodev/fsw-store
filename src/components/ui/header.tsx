@@ -1,9 +1,23 @@
 "use client";
 
-import {HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, PercentIcon, ShoppingCartIcon} from "lucide-react";
+import {
+  HomeIcon,
+  ListOrderedIcon,
+  LogInIcon,
+  LogOutIcon,
+  MenuIcon,
+  PercentIcon,
+  ShoppingCartIcon,
+} from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import {Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger} from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarImage } from "./avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
