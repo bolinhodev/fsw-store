@@ -1,5 +1,3 @@
-"use client"
-
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductList from "../../components/ui/product-list";
@@ -8,11 +6,6 @@ import PromoBanner from "./components/promo-banner";
 import { useEffect } from "react";
 
 export default async function Home() {
-
-  useEffect(() => {
-    // Perform localStorage action
-    const item = localStorage.getItem('key')
-  }, [])
   
   const deals = await prismaClient.product.findMany({
     where: {

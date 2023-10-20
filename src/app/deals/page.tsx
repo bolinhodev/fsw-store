@@ -1,4 +1,3 @@
-"use client"
 
 import { Badge } from "@/components/ui/badge";
 import ProductItem from "@/components/ui/product-item";
@@ -15,11 +14,6 @@ const DealsPage = async () => {
       },
     },
   });
-
-  useEffect(() => {
-    // Perform localStorage action
-    const item = localStorage.getItem('key')
-  }, [])
 
   return (
     <div className="flex flex-col gap-8 p-5">
