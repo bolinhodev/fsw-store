@@ -1,3 +1,5 @@
+"use server"
+
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductList from "../../components/ui/product-list";
