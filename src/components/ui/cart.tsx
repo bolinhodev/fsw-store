@@ -9,14 +9,27 @@ import { ScrollArea } from "./scroll-area";
 import { Button } from "./button";
 import { createCheckout } from "@/actions/checkout";
 import { loadStripe } from "@stripe/stripe-js";
+import { createOrder } from "@/actions/order";
+import { useSession } from "next-auth/react";
 
 const Cart = () => {
+  const { data } = useSession();
+
   const { products, subtotal, total, totalDiscount } = useContext(CartContext);
 
   const handleFinishPurchaseClick = async () => {
-    const checkout = await createCheckout(products);
+    if (!data?.user) {
+      // TODO: redirecionar para o login
+      return;
+    }
+
+    const order = await createOrder(products, (data?.user as any).id);
+
+    const checkout = await createCheckout(products, order.id);
 
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+
+    // Criar pedido no banco
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
@@ -83,10 +96,7 @@ const Cart = () => {
             <p>R$ {total.toFixed(2)}</p>
           </div>
 
-          <Button
-            className="mt-7 font-bold uppercase"
-            onClick={handleFinishPurchaseClick}
-          >
+          <Button className="mt-7 font-bold uppercase" onClick={handleFinishPurchaseClick}>
             Finalizar compra
           </Button>
         </div>
