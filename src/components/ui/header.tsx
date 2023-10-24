@@ -6,6 +6,7 @@ import {
   LogInIcon,
   LogOutIcon,
   MenuIcon,
+  PackageSearchIcon,
   PercentIcon,
   ShoppingCartIcon,
 } from "lucide-react";
@@ -84,11 +85,7 @@ const Header = () => {
             )}
 
             {status === "authenticated" && (
-              <Button
-                onClick={handleLogoutClick}
-                variant="outline"
-                className="w-full justify-start gap-2"
-              >
+              <Button onClick={handleLogoutClick} variant="outline" className="w-full justify-start gap-2">
                 <LogOutIcon size={16} />
                 Fazer Logout
               </Button>
@@ -96,10 +93,7 @@ const Header = () => {
 
             <SheetClose asChild>
               <Link href="/">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2"
-                >
+                <Button variant="outline" className="w-full justify-start gap-2">
                   <HomeIcon size={16} />
                   Início
                 </Button>
@@ -107,11 +101,17 @@ const Header = () => {
             </SheetClose>
 
             <SheetClose asChild>
+              <Link href="/orders">
+                <Button variant="outline" className="w-full justify-start gap-2">
+                  <PackageSearchIcon size={16} />
+                  Meus Pedidos
+                </Button>
+              </Link>
+            </SheetClose>
+
+            <SheetClose asChild>
               <Link href="/deals">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2"
-                >
+                <Button variant="outline" className="w-full justify-start gap-2">
                   <PercentIcon size={16} />
                   Ofertas
                 </Button>
@@ -120,10 +120,7 @@ const Header = () => {
 
             <SheetClose asChild>
               <Link href="/catalog">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2"
-                >
+                <Button variant="outline" className="w-full justify-start gap-2">
                   <ListOrderedIcon size={16} />
                   Catálogo
                 </Button>
