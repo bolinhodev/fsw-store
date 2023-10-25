@@ -1,5 +1,3 @@
-"use server"
-
 import { Badge } from "@/components/ui/badge";
 import { prismaClient } from "@/lib/prisma";
 import { ShapesIcon } from "lucide-react";
