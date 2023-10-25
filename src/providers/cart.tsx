@@ -44,6 +44,10 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("@fsw-store/cart-products", JSON.stringify(products));
+  }, [products]);
+
   // Total sem descontos
   const subtotal = useMemo(() => {
     return products.reduce((acc, product) => {

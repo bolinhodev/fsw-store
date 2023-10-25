@@ -19,7 +19,7 @@ export const authOptions: AuthOptions = {
         email: string;
       }
 
-      return session
+      return session;
     }
   },
 };

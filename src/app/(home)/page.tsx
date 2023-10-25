@@ -1,14 +1,10 @@
-"use server"
-
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductList from "../../components/ui/product-list";
 import SectionTitle from "../../components/ui/section-title";
 import PromoBanner from "./components/promo-banner";
-import { useEffect } from "react";
 
 export default async function Home() {
-  
   const deals = await prismaClient.product.findMany({
     where: {
       discountPercentage: {
